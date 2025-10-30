@@ -1,0 +1,33 @@
+#include<iostream>
+#include<cstring>
+using namespace std;
+int main(){
+    char str[100];
+    char seq[4];
+    cout<<"enter a string: ";
+    cin.getline(str,100);
+    cout<<"enter a sequence of characters to find: ";
+    cin.getline(seq,4);
+    bool found=false;
+    int len=strlen(str);
+    int len_seq=strlen(seq);
+    for(int i=0;i<len-len_seq+1;i++){
+        bool match=true;
+        for(int j=0;j<len_seq;j++){
+            if(str[i+j]!=seq[j]){
+                match=false;
+                break;
+            }
+        }
+        if(match){
+            found=true;
+            cout<<"Sequence found at index "<<i<<endl;
+        }
+    }
+    if(!found){
+        cout<<"Sequence not found in the string."<<endl;
+    }
+    return 0;
+
+}
+
