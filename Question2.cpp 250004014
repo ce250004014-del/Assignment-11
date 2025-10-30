@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+struct student {
+    string name;
+    int age;
+    float grade;
+    string branch;
+};
+int main(){
+    int size=100;
+    student *students=new student[size];
+    cout<<"size= "<<size<<endl;
+    students[0]={"Alice",20,3.5,"CSE"};
+    students[1]={"Bob",21,3.6,"ECE"};
+    students[2]={"Charlie",22,3.7,"ME"};
+    int new_size=200;
+    student *new_students=new student[new_size];
+    for(int i=0;i<size;i++){
+        new_students[i]=students[i];
+    }
+    students=new_students;
+    size=new_size;
+     cout<<"new size= "<<size<<endl;
+    new_students[140]={"David",23,3.8,"CE"};
+    cout<<students[140].name<<" "<<students[140].age<<" "<<students[140].grade<<" "<<students[140].branch<<endl;
+    delete [] students;
+    return 0;
+}
+
