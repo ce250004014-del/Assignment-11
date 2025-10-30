@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+int main(){
+    int size =100;
+    int *sales=new int[size];
+    for(int i=0;i<size;i++){
+        sales[i]=i;
+    }
+    cout<<"size= "<<size<<endl;
+    int new_size=200;
+    int *new_sales=new int[new_size];
+    for(int i=0;i<size;i++){
+        new_sales[i]=sales[i];
+    }
+   
+    sales=new_sales;
+    size=new_size;
+    cout<<"new size= "<<size<<endl;
+    for(int i=0;i<10;i++){
+        cout<<sales[i]<<" ";
+    }
+    delete[] sales;
+    return 0;
+
+}
+
